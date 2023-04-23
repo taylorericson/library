@@ -1,8 +1,10 @@
 const container = document.querySelector(".container");
 const addBtn = document.getElementById("add");
 const formContainer = document.querySelector(".form-container");
+const closeBtn = document.getElementById("close");
 
-addBtn.addEventListener('click', openForm);
+addBtn.addEventListener("click", openForm);
+closeBtn.addEventListener("click", closeForm);
 
 let myLibrary = [];
 
@@ -20,19 +22,20 @@ book2 = new Book("testbook", "authortest", "335");
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 
-
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
 function openForm() {
-    console.log("function called");
-    formContainer.style.display = "block";
+  console.log("function called");
+  formContainer.style.display = "block";
+}
+
+function closeForm() {
+  formContainer.style.display = "none";
 }
 
 console.log(myLibrary);
-
-
 
 // myLibrary.forEach(book => {
 //     let card = document.createElement('div');
@@ -40,7 +43,3 @@ console.log(myLibrary);
 //     card.textContent += `Title: ${book.name}, Author: ${book.author}, Page Count: ${book.pageCount}`
 //     container.appendChild(card);
 // });
-
-
-
-
