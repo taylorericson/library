@@ -15,14 +15,15 @@
       </div>
       <div class="main-container">
         <button id="add">+ Add Book</button>
+        <div class="card-container"></div>
         <div class="form-container">
-          <form action="#">
+          <form action="#" id="new-form">
             <button id="close">X</button>
             <h2>Add New Book</h2>
             <div class="form-row">
               <input
                 type="text"
-                id="book-title"
+                id="title"
                 placeholder="Title"
                 required
               />
@@ -33,13 +34,13 @@
             <div class="form-row">
               <input
                 type="number"
-                id="page-count"
+                id="pages"
                 placeholder="Page Count"
                 min="1"
                 required
               />
             </div>
-            <button type="submit">Add</button>
+            <button type="submit" id="submit-btn">Add</button>
           </form>
         </div>
       </div>

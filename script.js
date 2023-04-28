@@ -1,41 +1,44 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".card-container");
 const addBtn = document.getElementById("add");
 const formContainer = document.querySelector(".form-container");
 const closeBtn = document.getElementById("close");
+const form = document.getElementById("new-form");
+const submitBtn = document.getElementById("submit-btn")
 
 addBtn.addEventListener("click", openForm);
 closeBtn.addEventListener("click", closeForm);
 
 let myLibrary = [];
 
-function Book(name, author, pageCount, isRead) {
-  this.name = name;
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let book = new Book(form.title.value, form.author.value, form.pages.value);
+    myLibrary.push(book);
+    closeForm();
+    displayLibrary();
+})
+
+function Book(title, author, pages) {
+  this.name = title;
   this.author = author;
-  this.pageCount = pageCount;
-  this.isRead = isRead;
+  this.pages = pages;
+//   this.isRead = form.isRead.value;
 }
 
-book1 = new Book("Harry Potter", "J.K Rowling", "564");
-
-book2 = new Book("testbook", "authortest", "335");
-
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function displayLibrary() {
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.textContent += `Title: ${this.title.value} Author: ${this.author.value} Pages: ${this.pages.value}`;
+    container.appendChild(card);
 }
 
 function openForm() {
-  console.log("function called");
   formContainer.style.display = "block";
 }
 
 function closeForm() {
   formContainer.style.display = "none";
 }
-
-console.log(myLibrary);
 
 // myLibrary.forEach(book => {
 //     let card = document.createElement('div');
