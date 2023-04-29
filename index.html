@@ -5,45 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="grid-container">
       <div class="header">
-        <h1 class="title">Library</h1>
-      </div>
-      <div class="main-container">
-        <button id="add">+ Add Book</button>
-        <div class="card-container"></div>
-        <div class="form-container">
-          <form action="#" id="new-form">
-            <button id="close">X</button>
-            <h2>Add New Book</h2>
-            <div class="form-row">
-              <input
-                type="text"
-                id="title"
-                placeholder="Title"
-                required
-              />
-            </div>
-            <div class="form-row">
-              <input type="text" id="author" placeholder="Author" required />
-            </div>
-            <div class="form-row">
-              <input
-                type="number"
-                id="pages"
-                placeholder="Page Count"
-                min="1"
-                required
-              />
-            </div>
-            <button type="submit" id="submit-btn">Add</button>
-          </form>
+        <div class="icon">
+          <svg style="width:7rem;height:7rem" viewBox="0 0 24 24">
+            <path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" />
+          </svg>
         </div>
+        <h1 class="title">Library</h1>
+        <button id="add">+</button>
+          <!-- <svg style="width:3rem;height:3rem" viewBox="0 0 24 24">
+            <path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z" />
+          </svg> -->
+        
       </div>
+      <div class="card-container"></div>
+      <div class="form-container">
+        <form action="#" id="new-form">
+          <button class="close">X</button>
+          <h2>Add New Book</h2>
+          <div class="form-row">
+            <input type="text" id="title" placeholder="Title" required />
+          </div>
+          <div class="form-row">
+            <input type="text" id="author" placeholder="Author" required />
+          </div>
+          <div class="form-row">
+            <input
+              type="number"
+              id="pages"
+              placeholder="Page Count"
+              min="1"
+              required
+            />
+          </div>
+          <button type="submit" id="submit-btn">Add</button>
+        </form>
+      </div>
+      <div class="footer">
+        <p>taylorericson</p>
+        <a href="https://github.com/taylorericson" target="_blank"</a>
+            <i class="fa fa-github"></i>
+    </div>
     </div>
   </body>
 </html>

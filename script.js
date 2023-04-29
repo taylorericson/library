@@ -1,7 +1,7 @@
 const container = document.querySelector(".card-container");
 const addBtn = document.getElementById("add");
 const formContainer = document.querySelector(".form-container");
-const closeBtn = document.getElementById("close");
+const closeBtn = document.querySelector(".close");
 const form = document.getElementById("new-form");
 const submitBtn = document.getElementById("submit-btn")
 
@@ -16,6 +16,7 @@ form.addEventListener('submit', (e) => {
     myLibrary.push(book);
     closeForm();
     displayLibrary();
+    form.reset();
 })
 
 function Book(title, author, pages) {
@@ -28,7 +29,15 @@ function Book(title, author, pages) {
 function displayLibrary() {
     let card = document.createElement('div');
     card.classList.add('card');
-    card.textContent += `Title: ${this.title.value} Author: ${this.author.value} Pages: ${this.pages.value}`;
+    let p1 = document.createElement('p');
+    p1.textContent = `Title: ${this.title.value}`;
+    let p2 = document.createElement('p');
+    p2.textContent = `Author: ${this.author.value}`;
+    let p3 = document.createElement('p');
+    p3.textContent = `Pages: ${this.pages.value}`;
+    card.appendChild(p1);
+    card.appendChild(p2);
+    card.appendChild(p3);
     container.appendChild(card);
 }
 
