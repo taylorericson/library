@@ -44,7 +44,6 @@ svg {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 30px;
     row-gap: 30px;
-    /* justify-self: center; */
     margin-top: 5%;
 }
 
@@ -76,7 +75,7 @@ svg {
 }
 
 #add:hover {
-    background-color: rgba(11, 10, 10, 1);
+    background-color: #064e3b;
 }
 
 .form-container { 
@@ -137,6 +136,7 @@ form {
     color: #fff;
     font-size: 1.5rem;
     border-radius: 10px;
+    margin: 5%;
 }
 
 .card p{
@@ -144,8 +144,16 @@ form {
     
 }
 
+.toggle-status {
+    width: 100%;
+    background-color: maroon;
+    color: #fff;
+    font-size: 2rem;
+    margin-top: auto;
+}
+
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
