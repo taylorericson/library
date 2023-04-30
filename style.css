@@ -25,7 +25,7 @@ svg {
     justify-content: space-between;
     align-items: center;
     background-color: #043629;
-    color: white;
+    color: #fff;
 }
 
 .title {
@@ -45,6 +45,7 @@ svg {
     column-gap: 30px;
     row-gap: 30px;
     margin-top: 5%;
+    overflow: scroll;
 }
 
 #add {
@@ -62,7 +63,7 @@ svg {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgba(11, 10, 10, .7);
+    background-color: #0b0a0aac;
     outline: none;
     border-style: none;
     color: white;
@@ -71,7 +72,7 @@ svg {
 }
 
 .close:hover {
-    background-color: rgb(241, 10, 10, .8);
+    background-color: #f10a0a;
 }
 
 #add:hover {
@@ -83,7 +84,7 @@ svg {
     position: fixed;
     place-self: center;
     top: 30%;
-    background-color: rgba(11, 10, 10, .7);
+    background-color: #0b0a0aac;
     height: 280px;
     width: 200px;
     color: white;
@@ -139,9 +140,13 @@ form {
     margin: 5%;
 }
 
-.card p{
+.card p {
     margin: 1% 2%;
     
+}
+
+.card h2 {
+    margin-left: 2%;
 }
 
 .toggle-status {
@@ -150,6 +155,28 @@ form {
     color: #fff;
     font-size: 2rem;
     margin-top: auto;
+}
+
+.log {
+    display: none;
+    justify-content: space-around;
+    position: fixed;
+    top: 16%;
+    justify-self: center;
+    color: #fff;
+    width: 100%;
+    height: 8%;
+}
+.finished, .in-progress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    width: 20%;
+    height: 40%;
+    background-color: #043629;
+    border: 3px solid #fff;
+    font-size: 1.3rem;
 }
 
 .footer {

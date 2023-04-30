@@ -4,11 +4,16 @@ const formContainer = document.querySelector(".form-container");
 const closeBtn = document.querySelector(".close");
 const form = document.getElementById("new-form");
 const submitBtn = document.getElementById("submit-btn");
+const log = document.querySelector(".log");
+const finished = document.querySelector(".finished");
+const inProgress = document.querySelector(".in-progress");
 
 addBtn.addEventListener("click", openForm);
 closeBtn.addEventListener("click", closeForm);
 
 let myLibrary = [];
+let sumRead = 0;
+let sumNotRead = 0;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -45,6 +50,7 @@ function displayLibrary() {
   container.innerHTML = "";
 
   for (let i = 0; i < myLibrary.length; i++) {
+    
     let book = myLibrary[i];
     let card = document.createElement("div");
     card.classList.add("card");
@@ -61,7 +67,6 @@ function displayLibrary() {
     card.appendChild(toggleStatus);
 
     if(book.status) {
-      console.log("reached");
       toggleStatus.style.backgroundColor = "forestgreen";
     }
 
@@ -75,6 +80,11 @@ function displayLibrary() {
     card.appendChild(removeBtn);
     container.appendChild(card);
   }
+    sumRead = myLibrary.filter((book) => book.status);
+    sumNotRead = myLibrary.length - sumRead.length;
+    log.style.display = "flex";
+    finished.textContent = `Books read: ${sumRead.length}`;
+    inProgress.textContent = `Books in progress: ${sumNotRead}`;
 }
 
 function removeBook(index) {
