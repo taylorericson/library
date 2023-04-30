@@ -3,42 +3,59 @@ const addBtn = document.getElementById("add");
 const formContainer = document.querySelector(".form-container");
 const closeBtn = document.querySelector(".close");
 const form = document.getElementById("new-form");
-const submitBtn = document.getElementById("submit-btn")
+const submitBtn = document.getElementById("submit-btn");
 
 addBtn.addEventListener("click", openForm);
 closeBtn.addEventListener("click", closeForm);
 
 let myLibrary = [];
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let book = new Book(form.title.value, form.author.value, form.pages.value);
-    myLibrary.push(book);
-    closeForm();
-    displayLibrary();
-    form.reset();
-})
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let book = new Book(
+    form.title.value,
+    form.author.value,
+    form.pages.value,
+    form.status.checked
+  );
+  myLibrary.push(book);
+  closeForm();
+  displayLibrary();
+  form.reset();
+});
 
-function Book(title, author, pages) {
-  this.name = title;
+function Book(title, author, pages, status) {
+  this.title = title;
   this.author = author;
   this.pages = pages;
-//   this.isRead = form.isRead.value;
+  this.status = status;
 }
 
 function displayLibrary() {
-    let card = document.createElement('div');
-    card.classList.add('card');
-    let p1 = document.createElement('p');
-    p1.textContent = `Title: ${this.title.value}`;
-    let p2 = document.createElement('p');
-    p2.textContent = `Author: ${this.author.value}`;
-    let p3 = document.createElement('p');
-    p3.textContent = `Pages: ${this.pages.value}`;
-    card.appendChild(p1);
-    card.appendChild(p2);
-    card.appendChild(p3);
+  container.innerHTML = "";
+  for (let i = 0; i < myLibrary.length; i++) {
+    let book = myLibrary[i];
+    let card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `<h2>${book.title}</h2>
+      <p>by ${book.author}</p>
+      <p>${book.pages} pages</p>
+      <p>${book.status ? "Read" : "Not Read Yet"}</p>`;
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "X";
+    removeBtn.classList.add("remove-btn");
+    removeBtn.addEventListener("click", function () {
+      console.log(book);
+      removeBook(i);
+    });
+    card.appendChild(removeBtn);
     container.appendChild(card);
+  }
+}
+
+function removeBook(index) {
+  myLibrary.splice(index, 1);
+  displayLibrary();
 }
 
 function openForm() {
@@ -48,10 +65,3 @@ function openForm() {
 function closeForm() {
   formContainer.style.display = "none";
 }
-
-// myLibrary.forEach(book => {
-//     let card = document.createElement('div');
-//     card.classList.add('card');
-//     card.textContent += `Title: ${book.name}, Author: ${book.author}, Page Count: ${book.pageCount}`
-//     container.appendChild(card);
-// });
